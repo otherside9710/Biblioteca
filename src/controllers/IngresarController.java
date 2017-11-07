@@ -3,6 +3,7 @@ package controllers;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import models.conexion;
+import views.Login;
 import views.admin.MenuAdmin;
 import views.user.MenuUser;
 
@@ -38,6 +39,8 @@ public class IngresarController {
         }
         if (!capturar.equals("admin") && (!capturar.equals("estudiante"))) {            
             JOptionPane.showMessageDialog(null, "Credenciales Iconrrectas, Vuelva A intentar ");
+            Login log = new Login();
+            log.setVisible(true);
         }
        
         }
