@@ -27,7 +27,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btn_Menu_IngresarLibro = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -57,7 +57,12 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("INGRESAR LIBRO");
+        btn_Menu_IngresarLibro.setText("INGRESAR LIBRO");
+        btn_Menu_IngresarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Menu_IngresarLibroActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("BUSCAR LIBRO");
 
@@ -90,7 +95,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(290, 290, 290)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Menu_IngresarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -111,7 +116,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(73, 73, 73)
                 .addComponent(jLabel12)
                 .addGap(63, 63, 63)
-                .addComponent(jButton1)
+                .addComponent(btn_Menu_IngresarLibro)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
@@ -347,6 +352,12 @@ public class MenuAdmin extends javax.swing.JFrame {
        lo.setVisible(true);
     }//GEN-LAST:event_btn_csActionPerformed
 
+    private void btn_Menu_IngresarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Menu_IngresarLibroActionPerformed
+       IngresarLibro il = new IngresarLibro();
+       il.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_btn_Menu_IngresarLibroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -384,11 +395,11 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_Estudiantes;
+    private javax.swing.JButton btn_Menu_IngresarLibro;
     private javax.swing.JButton btn_cs;
     private javax.swing.JButton btn_ingresarEst;
     private javax.swing.JButton btn_salir;
     private javax.swing.JButton btn_salir2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton13;

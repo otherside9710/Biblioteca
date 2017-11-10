@@ -5,17 +5,27 @@
  */
 package views.admin;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import models.Conexion;
+
 /**
  *
  * @author Otherside
  */
 public class IngresarLibro extends javax.swing.JFrame {
+    public int resp;
 
     /**
      * Creates new form IngresarLibro
      */
     public IngresarLibro() {
         initComponents();
+        setLocationRelativeTo(null);//Centrar Ventana
     }
 
     /**
@@ -108,8 +118,18 @@ public class IngresarLibro extends javax.swing.JFrame {
         });
 
         btn_guardar.setText("GUARDAR");
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
 
         btn_limpiar.setText("LIMPIAR");
+        btn_limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limpiarActionPerformed(evt);
+            }
+        });
 
         btn_atras.setText("ATRAS");
         btn_atras.addActionListener(new java.awt.event.ActionListener() {
@@ -231,6 +251,55 @@ public class IngresarLibro extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btn_atrasActionPerformed
 
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        Conexion con = new Conexion();
+        PreparedStatement ps;
+        try {
+            Connection cn = con.conectar();
+            ps = cn.prepareStatement("INSERT INTO libros (li_nombre,li_editorial,li_genero,li_autor,li_ubicacion,li_estado,li_añoEdicion) VALUES(?,?,?,?,?,?,?)");
+            ps.setString(1, txt_NomLibro.getText());
+            ps.setString(2, txt_editLibro.getText());
+            ps.setString(3, txt_GenLibro.getText());
+            ps.setString(4, txt_autLibro.getText());
+            ps.setString(5, txt_UbiLibro.getText());
+            ps.setString(6, txt_estadoLibro.getText());
+            ps.setString(7, txt_AñoLibro.getText());
+           
+            if ("".equals(txt_NomLibro.getText()) || "".equals(txt_editLibro.getText()) || "".equals(txt_GenLibro.getText()) || "".equals(txt_autLibro.getText()) || "".equals(txt_UbiLibro.getText()) || "".equals(txt_estadoLibro.getText()) || "".equals(txt_AñoLibro.getText())) {
+             JOptionPane.showMessageDialog(null, "Complete Todos Los Campos");
+            } else{
+                resp = ps.executeUpdate();
+                limpiar();
+            }
+            if (resp > 0) {
+                JOptionPane.showMessageDialog(this, "Insertado!");
+                limpiar();
+            }
+            if (resp < 0){
+                JOptionPane.showMessageDialog(this, "NO Insertado");
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(IngresarEstudiante.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(IngresarEstudiante.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_guardarActionPerformed
+
+    private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btn_limpiarActionPerformed
+    
+    public void limpiar(){
+        txt_NomLibro.setText("");
+        txt_editLibro.setText("");
+        txt_GenLibro.setText("");
+        txt_autLibro.setText("");
+        txt_UbiLibro.setText("");
+        txt_estadoLibro.setText("");
+        txt_AñoLibro.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */

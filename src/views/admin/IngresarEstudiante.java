@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import models.conexion;
+import models.Conexion;
 
 /**
  *
@@ -232,7 +232,7 @@ public class IngresarEstudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_atrasActionPerformed
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-        conexion con = new conexion();
+        Conexion con = new Conexion();
         PreparedStatement ps;
         try {
             Connection cn = con.conectar();

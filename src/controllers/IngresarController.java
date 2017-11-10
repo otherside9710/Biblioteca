@@ -2,7 +2,7 @@ package controllers;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
-import models.conexion;
+import models.Conexion;
 import views.Login;
 import views.admin.MenuAdmin;
 import views.user.MenuUser;
@@ -16,7 +16,7 @@ public class IngresarController {
         try {
             boolean swc;
         swc = false;
-        conexion con = new conexion();
+        Conexion con = new Conexion();
         Connection cn = con.conectar();
         String sql = "SELECT * FROM usuarios WHERE usuario ='"+usario+"' && password = '"+pass+"'";
         Statement st = cn.createStatement();

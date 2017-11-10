@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author otherside
  */
-public class conexion {
+public class Conexion {
     
     //Java Conexion
     public static final String URL = "jdbc:mysql://localhost:3306/biblioteca"; 
