@@ -1,5 +1,7 @@
 package views.user;
 
+import views.Login;
+
 /**
  *
  * @author Otherside
@@ -40,6 +42,8 @@ public class MenuUser extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        btn_closeSesion = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -69,7 +73,7 @@ public class MenuUser extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 690, 150));
 
         jButton4.setText("PRESTAR");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 550, 100, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 560, 100, -1));
 
         jButton5.setText("SALIR");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +81,7 @@ public class MenuUser extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 550, 90, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 560, 120, -1));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, -1, -1));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 430, 20, 10));
 
@@ -107,7 +111,16 @@ public class MenuUser extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 590, -1, -1));
 
         jButton3.setText("LIMPIAR");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 550, 100, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 560, 100, -1));
+
+        btn_closeSesion.setText("CERRAR SESION");
+        btn_closeSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_closeSesionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_closeSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 600, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -115,6 +128,12 @@ public class MenuUser extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void btn_closeSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_closeSesionActionPerformed
+       this.setVisible(false);
+       Login lo = new Login();
+       lo.setVisible(true);
+    }//GEN-LAST:event_btn_closeSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,6 +173,7 @@ public class MenuUser extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar;
+    private javax.swing.JButton btn_closeSesion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -163,6 +183,7 @@ public class MenuUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

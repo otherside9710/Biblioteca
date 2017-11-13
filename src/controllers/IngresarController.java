@@ -4,7 +4,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import models.Conexion;
 import views.Login;
-import views.admin.MenuAdmin;
+import views.administradores.admis.MenuAdmin;
 import views.user.MenuUser;
 
 /**
