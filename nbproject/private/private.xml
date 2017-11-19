@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/reportes/Reportes.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/controllers/IngresarController.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/reportes/BibliotecaReport.jrxml</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/user/MenuUser.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/models/Conexion.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/MenuAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/IngresarAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/Login.java</file>
+        </group>
+>>>>>>> cc1604ffbfc05b7c31e11fba778c59f9483aa874
     </open-files>
 </project-private>
