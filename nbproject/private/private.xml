@@ -3,18 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/administradores/admis/IngresarAdmin.java</file>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/admin/estudiantes/BuscarEstudiante.java</file>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/admin/estudiantes/EliminarEstudiante.java</file>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/admin/libros/EliminarLibro.java</file>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/administradores/admis/EditarAdministrador.java</file>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/admin/estudiantes/EditarEstudiante.java</file>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/administradores/admis/BuscarAdmin.java</file>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/admin/libros/IngresarLibro.java</file>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/admin/libros/BuscarLibro.java</file>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/admin/estudiantes/IngresarEstudiante.java</file>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/administradores/admis/MenuAdmin.java</file>
-            <file>file:/C:/Users/Otherside/Documents/NetBeansProjects/Proyect_sub/Biblioteca/src/views/admin/libros/EditarLibro.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/controllers/IngresarController.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/admin/libros/EditarLibro.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/BuscarAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/models/Conexion.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/MenuAdmin.java</file>
         </group>
     </open-files>
 </project-private>
