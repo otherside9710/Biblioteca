@@ -299,7 +299,14 @@ private int id;
     }//GEN-LAST:event_btn_modificarActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
-       MenuAdmin ma = new MenuAdmin();
+       MenuAdmin ma = null;
+    try {
+        ma = new MenuAdmin();
+    } catch (SQLException ex) {
+        Logger.getLogger(EditarLibro.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (ClassNotFoundException ex) {
+        Logger.getLogger(EditarLibro.class.getName()).log(Level.SEVERE, null, ex);
+    }
        ma.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_btn_atrasActionPerformed

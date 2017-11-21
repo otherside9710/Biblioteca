@@ -12,13 +12,11 @@ import views.user.MenuUser;
  * @author Otherside
  */
 public class IngresarController {
-    public void ingresar(String usario, String pass) throws SQLException, ClassNotFoundException{
+    public void ingresar(String usuario, String pass) throws SQLException, ClassNotFoundException{
         try {
-            boolean swc;
-        swc = false;
         Conexion con = new Conexion();
         Connection cn = con.conectar();
-        String sql = "SELECT * FROM usuarios WHERE usuario ='"+usario+"' && password = '"+pass+"'";
+        String sql = "SELECT * FROM usuarios WHERE usuario ='"+usuario+"' && password = '"+pass+"'";
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(sql);
         String capturar =""; 
@@ -26,18 +24,18 @@ public class IngresarController {
             capturar = rs.getString("tipouser");            
         }
         
-        if (capturar.equals("admin")) {
-            JOptionPane.showMessageDialog(null, "Bienvenido " + usario);
+        if (capturar.equals("1")) {
+            JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);
             MenuAdmin ma = new MenuAdmin();
             ma.setVisible(true);
         }
-        if (capturar.equals("estudiante")) {
-            JOptionPane.showMessageDialog(null, "Bienvenido " + usario);  
+        if (capturar.equals("2")) {
+            JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);  
             MenuUser mu = new MenuUser();
             mu.setVisible(true);
-            swc = true;
+           
         }
-        if (!capturar.equals("admin") && (!capturar.equals("estudiante"))) {            
+        if (!capturar.equals("1") && (!capturar.equals("2"))) {            
             JOptionPane.showMessageDialog(null, "Credenciales Iconrrectas, Vuelva A intentar ");
             Login log = new Login();
             log.setVisible(true);
