@@ -248,7 +248,14 @@ public class IngresarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_AñoLibroActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
-        MenuAdmin ma = new MenuAdmin();
+        MenuAdmin ma = null;
+        try {
+            ma = new MenuAdmin();
+        } catch (SQLException ex) {
+            Logger.getLogger(IngresarLibro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(IngresarLibro.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ma.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_atrasActionPerformed

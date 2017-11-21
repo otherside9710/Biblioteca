@@ -6,6 +6,7 @@
 package views;
 
 import controllers.IngresarController;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -82,6 +83,12 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("LOGIN BIBLIOTECA ");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+
+        txt_pass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_passKeyPressed(evt);
+            }
+        });
         getContentPane().add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 130, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logo.png"))); // NOI18N
@@ -108,6 +115,12 @@ public class Login extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_btn_ingresarActionPerformed
+
+    private void txt_passKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btn_ingresar.doClick();
+        }
+    }//GEN-LAST:event_txt_passKeyPressed
 
     /**
      * @param args the command line arguments
