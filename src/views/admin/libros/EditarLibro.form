@@ -58,9 +58,9 @@
                               <Component id="txt_autor" min="-2" pref="165" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txt_ubicacion" min="-2" pref="171" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txt_estado" min="-2" pref="172" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="txt_estado" min="-2" pref="152" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txt_añoEdicion" min="-2" pref="165" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -113,10 +113,10 @@
                   <Component id="txt_nombre" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="txt_editorial" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="txt_genero" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="txt_estado" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="txt_autor" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="txt_añoEdicion" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="txt_ubicacion" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="txt_estado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="326" max="-2" attributes="0"/>
@@ -199,8 +199,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txt_genero">
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_estado">
-    </Component>
     <Component class="javax.swing.JButton" name="btn_modificar">
       <Properties>
         <Property name="text" type="java.lang.String" value="MODIFICAR"/>
@@ -249,6 +247,19 @@
     <Component class="javax.swing.JTextField" name="txt_ubicacion">
     </Component>
     <Component class="javax.swing.JTextField" name="txt_a&#xf1;oEdicion">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="txt_estado">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Disponible"/>
+            <StringItem index="1" value="Prestado"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

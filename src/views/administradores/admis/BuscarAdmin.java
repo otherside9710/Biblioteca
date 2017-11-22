@@ -174,11 +174,11 @@ Connection cn;
     
     public void CargarTabla(JTable tabla, String cadena) throws SQLException, ClassNotFoundException{
         DefaultTableModel modelo;
-        String [] titulo = {"NUM CARNET", "NOMBRE","APELLIDO","DIRECCION","TELEFONO","EMAIL","SEXO","PASATIEMPO", "DEPARTAMENTO", "MUNICIPIO"};
+        String [] titulo = {"NOMBRE","APELLIDO","CEDULA","DIRECCION","TELEFONO"};
         modelo = new DefaultTableModel(null,titulo);
         
-        String [] registros = new String[10];
-        String sql = "SELECT es_NumCarnet, es_nombre, es_apellido, es_direccion,es_telefono,es_email,es_sexo,es_pasatiempo, es_departamento, es_municipio FROM estudiantes WHERE CONCAT (es_NumCarnet, es_nombre, es_apellido, es_direccion,es_telefono,es_email,es_sexo,es_pasatiempo, es_departamento, es_municipio) LIKE '%"+cadena+"%'";
+        String [] registros = new String[5];
+        String sql = "SELECT adm_nombre, adm_apellido, adm_cedula, adm_direccion ,adm_telefono FROM administradores WHERE CONCAT (adm_nombre, adm_apellido, adm_cedula, adm_direccion, adm_telefono) LIKE '%"+cadena+"%'";
         Conexion con = new Conexion();  
         cn = (Connection) con.conectar();
         
@@ -186,7 +186,7 @@ Connection cn;
             Statement st  = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                for (int i = 0; i <10; i++) 
+                for (int i = 0; i <registros.length; i++) 
                     registros[i]= rs.getString(i+1);
                 modelo.addRow(registros);                
             }

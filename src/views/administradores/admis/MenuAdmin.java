@@ -61,9 +61,9 @@ private int id;
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         btn_sing_Admin = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        tbn_buscarAdmin = new javax.swing.JButton();
+        btn_editarAdmin = new javax.swing.JButton();
+        btn_eliminarAdmin = new javax.swing.JButton();
         Panel_Estudiantes = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btn_ingresarEst = new javax.swing.JButton();
@@ -205,16 +205,21 @@ private int id;
             }
         });
 
-        jButton6.setText("BUSCAR ADMINISTRADOR");
-
-        jButton9.setText("EDITAR ADMINISTRADOR");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        tbn_buscarAdmin.setText("BUSCAR ADMINISTRADOR");
+        tbn_buscarAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                tbn_buscarAdminActionPerformed(evt);
             }
         });
 
-        jButton10.setText("ELIMINAR ADMINISTRADOR");
+        btn_editarAdmin.setText("EDITAR ADMINISTRADOR");
+        btn_editarAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarAdminActionPerformed(evt);
+            }
+        });
+
+        btn_eliminarAdmin.setText("ELIMINAR ADMINISTRADOR");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -225,9 +230,9 @@ private int id;
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_sing_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_editarAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tbn_buscarAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_eliminarAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(159, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -238,11 +243,11 @@ private int id;
                 .addGap(18, 18, 18)
                 .addComponent(btn_sing_Admin)
                 .addGap(18, 18, 18)
-                .addComponent(jButton6)
+                .addComponent(tbn_buscarAdmin)
                 .addGap(18, 18, 18)
-                .addComponent(jButton9)
+                .addComponent(btn_editarAdmin)
                 .addGap(18, 18, 18)
-                .addComponent(jButton10)
+                .addComponent(btn_eliminarAdmin)
                 .addContainerGap(68, Short.MAX_VALUE))
         );
 
@@ -433,9 +438,9 @@ private int id;
                         .addGap(354, 354, 354)
                         .addComponent(jLabel8))
                     .addGroup(Panel_loginLayout.createSequentialGroup()
-                        .addGap(238, 238, 238)
+                        .addGap(272, 272, 272)
                         .addComponent(btn_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(32, 32, 32)
                         .addComponent(btn_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Panel_loginLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -568,9 +573,17 @@ private int id;
         System.exit(0);
     }//GEN-LAST:event_btn_salirActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void btn_editarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarAdminActionPerformed
+    try {
+        EditarAdministrador ea = new EditarAdministrador();
+        ea.setVisible(true);
+        this.setVisible(false);
+    } catch (SQLException ex) {
+        Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (ClassNotFoundException ex) {
+        Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_btn_editarAdminActionPerformed
 
     private void btn_ingresarEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarEstActionPerformed
         IngresarEstudiante is = new IngresarEstudiante();
@@ -766,8 +779,8 @@ private int id;
                 if (user =="" && tipo == "" && pass =="" && codigo =="") {
                     JOptionPane.showMessageDialog(this, "Por Favor Complete Los Campos");
                 }else{
-                    if (JOptionPane.showConfirmDialog(rootPane, "Editar Registro!, ¿desea continuar?",
-                        "Editar Registro", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+                if (JOptionPane.showConfirmDialog(rootPane, "Editar Registro!, ¿desea continuar?",
+                    "Editar Registro", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
                     Statement smt = cn.createStatement();
                     smt.execute("UPDATE usuarios set codigo='"+codigo+"', usuario='"+user+"', tipouser='"+tipo+"', password='"+pass+"' WHERE codigo ="+id);
                     JOptionPane.showMessageDialog(this, "Datos Actualizados Correctamente!");
@@ -781,9 +794,9 @@ private int id;
                 }
             }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "No se pudo actualizar los datos " +e);
-        }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "No se pudo actualizar los datos " +e);
+            }
         }
     }//GEN-LAST:event_btn_modificarActionPerformed
 
@@ -803,6 +816,20 @@ private int id;
     private void txt_usuario_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuario_codigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_usuario_codigoActionPerformed
+
+    private void tbn_buscarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbn_buscarAdminActionPerformed
+        try {
+            BuscarAdmin ba;
+            ba = new BuscarAdmin();
+            ba.setVisible(true);
+            this.setVisible(false);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tbn_buscarAdminActionPerformed
     
     public void limpiarcajas(){
         txt_usuario_codigo.setText("");
@@ -863,8 +890,10 @@ private int id;
     private javax.swing.JButton btn_buscarLibro;
     private javax.swing.JButton btn_cs;
     private javax.swing.JButton btn_cs1;
+    private javax.swing.JButton btn_editarAdmin;
     private javax.swing.JButton btn_editarEstudiante;
     private javax.swing.JButton btn_editarLibro;
+    private javax.swing.JButton btn_eliminarAdmin;
     private javax.swing.JButton btn_eliminarLibro;
     private javax.swing.JButton btn_ingresarEst;
     private javax.swing.JButton btn_modificar;
@@ -872,10 +901,7 @@ private int id;
     private javax.swing.JButton btn_salir;
     private javax.swing.JButton btn_salir2;
     private javax.swing.JButton btn_sing_Admin;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -894,6 +920,7 @@ private int id;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel panel_libros;
     public static javax.swing.JTable tabla_buscar;
+    private javax.swing.JButton tbn_buscarAdmin;
     private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_usuario_codigo;
     private javax.swing.JTextField txt_usuario_pass;

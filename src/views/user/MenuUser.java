@@ -1,5 +1,8 @@
 package views.user;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import views.Login;
 
 /**
@@ -25,115 +28,102 @@ public class MenuUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        btn_buscar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        btn_closeSesion = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btn_prestarLibro = new javax.swing.JButton();
+        btn_devolverlibro = new javax.swing.JButton();
+        btn_singout = new javax.swing.JButton();
+        btn_salir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText("BUSCAR LIBRO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 300, -1));
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("BUSCAR:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, 40));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 690, 150));
-
-        jButton4.setText("PRESTAR");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 560, 100, -1));
-
-        jButton5.setText("SALIR");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 560, 120, -1));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, -1, -1));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 430, 20, 10));
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        jTabbedPane1.addTab("Libros Agregados", jScrollPane2);
-
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 690, 180));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, 80, 30));
-
-        btn_buscar.setText("LIMPIAR");
-        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 110, 30));
-
-        jButton1.setText("AGREGAR");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 100, -1));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 590, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 600, -1, -1));
 
-        jButton3.setText("LIMPIAR");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 560, 100, -1));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setText("WELCOME");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 120, 40));
 
-        btn_closeSesion.setText("CERRAR SESION");
-        btn_closeSesion.addActionListener(new java.awt.event.ActionListener() {
+        btn_prestarLibro.setText("PRESTAR LIBRO");
+        btn_prestarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_closeSesionActionPerformed(evt);
+                btn_prestarLibroActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_closeSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, -1));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 600, -1, -1));
+        getContentPane().add(btn_prestarLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 240, -1));
+
+        btn_devolverlibro.setText("DEVOLVER LIBRO");
+        btn_devolverlibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_devolverlibroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_devolverlibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 240, -1));
+
+        btn_singout.setText("CERRAR SESION");
+        btn_singout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_singoutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_singout, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 160, -1));
+
+        btn_salir.setText("SALIR");
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 400, 160, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/menuUser.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void btn_prestarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_prestarLibroActionPerformed
+        try {
+            Prestar_Libro bl = new Prestar_Libro();
+            bl.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuUser.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }//GEN-LAST:event_btn_prestarLibroActionPerformed
 
-    private void btn_closeSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_closeSesionActionPerformed
-       this.setVisible(false);
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void btn_singoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_singoutActionPerformed
        Login lo = new Login();
        lo.setVisible(true);
-    }//GEN-LAST:event_btn_closeSesionActionPerformed
+       this.setVisible(false);
+    }//GEN-LAST:event_btn_singoutActionPerformed
+
+    private void btn_devolverlibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_devolverlibroActionPerformed
+        try {
+            Devolver_Libro dl = new Devolver_Libro();
+            dl.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuUser.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }//GEN-LAST:event_btn_devolverlibroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,24 +162,15 @@ public class MenuUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_buscar;
-    private javax.swing.JButton btn_closeSesion;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btn_devolverlibro;
+    private javax.swing.JButton btn_prestarLibro;
+    private javax.swing.JButton btn_salir;
+    private javax.swing.JButton btn_singout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

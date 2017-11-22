@@ -52,7 +52,6 @@ private int id;
         txt_nombre = new javax.swing.JTextField();
         txt_editorial = new javax.swing.JTextField();
         txt_genero = new javax.swing.JTextField();
-        txt_estado = new javax.swing.JTextField();
         btn_modificar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -64,6 +63,7 @@ private int id;
         txt_autor = new javax.swing.JTextField();
         txt_ubicacion = new javax.swing.JTextField();
         txt_añoEdicion = new javax.swing.JTextField();
+        txt_estado = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,6 +122,8 @@ private int id;
 
         jLabel9.setText("AÑO EDICION");
 
+        txt_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "Prestado" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,9 +160,9 @@ private int id;
                                 .addComponent(txt_autor, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txt_ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(26, 26, 26)
+                                .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(txt_añoEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(16, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -204,10 +206,10 @@ private int id;
                     .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_editorial, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_genero, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_autor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_añoEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -253,7 +255,7 @@ private int id;
                 txt_genero.setText(rs.getString(4));
                 txt_autor.setText(rs.getString(5));
                 txt_ubicacion.setText(rs.getString(6));
-                txt_estado.setText(rs.getString(7));
+                txt_estado.setSelectedItem(rs.getString(7));
                 txt_añoEdicion.setText(rs.getString(8));
                 
             }
@@ -271,10 +273,10 @@ private int id;
             String genero = txt_genero.getText();
             String autor = txt_autor.getText();
             String ubicacion = txt_ubicacion.getText();
-            String estado = txt_estado.getText();
+            String estado = (String) txt_estado.getSelectedItem();
             String añoEdicion =  txt_añoEdicion.getText(); 
             try {
-                if (nombre == "" && editorial =="" && genero =="" && autor =="" && ubicacion ==""  && estado ==""  && añoEdicion =="" ) {
+                if (nombre == "" && editorial =="" && genero =="" && autor =="" && ubicacion ==""  && añoEdicion =="" ) {
                     JOptionPane.showMessageDialog(this, "Por Favor Complete Los Campos");
                 }else{
                     if (JOptionPane.showConfirmDialog(rootPane, "Editar Registro!, ¿desea continuar?",
@@ -345,7 +347,7 @@ private int id;
         txt_genero.setText("");
         txt_autor.setText("");
         txt_ubicacion.setText("");
-        txt_estado.setText("");
+        txt_estado.setSelectedItem(0);
         txt_añoEdicion.setText("");        
     }
     
@@ -410,7 +412,7 @@ private int id;
     private javax.swing.JTextField txt_añoEdicion;
     private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_editorial;
-    private javax.swing.JTextField txt_estado;
+    private javax.swing.JComboBox<String> txt_estado;
     private javax.swing.JTextField txt_genero;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_ubicacion;

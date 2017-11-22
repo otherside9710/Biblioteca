@@ -248,9 +248,9 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btn_sing_Admin" max="32767" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton9" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jButton6" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jButton10" max="32767" attributes="0"/>
+                              <Component id="btn_editarAdmin" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tbn_buscarAdmin" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btn_eliminarAdmin" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="159" max="32767" attributes="0"/>
                       </Group>
@@ -264,11 +264,11 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btn_sing_Admin" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                          <Component id="tbn_buscarAdmin" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_editarAdmin" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton10" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_eliminarAdmin" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="68" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -288,20 +288,23 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_sing_AdminActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton6">
+                <Component class="javax.swing.JButton" name="tbn_buscarAdmin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="BUSCAR ADMINISTRADOR"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbn_buscarAdminActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton9">
+                <Component class="javax.swing.JButton" name="btn_editarAdmin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="EDITAR ADMINISTRADOR"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_editarAdminActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton10">
+                <Component class="javax.swing.JButton" name="btn_eliminarAdmin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="ELIMINAR ADMINISTRADOR"/>
                   </Properties>
@@ -429,9 +432,9 @@
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="272" max="-2" attributes="0"/>
                               <Component id="btn_modificar" min="-2" pref="136" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="btn_atras" min="-2" pref="136" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
