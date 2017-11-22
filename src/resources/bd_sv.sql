@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : LocalHost
-Source Server Version : 50505
-Source Host           : localhost:3306
+Source Server         : MyAsesor Local
+Source Server Version : 50718
+Source Host           : 192.168.0.20:3306
 Source Database       : biblioteca
 
 Target Server Type    : MYSQL
-Target Server Version : 50505
+Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2017-11-22 04:00:08
+Date: 2017-11-22 16:37:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,7 +30,7 @@ PRIMARY KEY (`adm_codigo`)
 )
 ENGINE=InnoDB
 DEFAULT CHARACTER SET=latin1 COLLATE=latin1_swedish_ci
-AUTO_INCREMENT=3
+AUTO_INCREMENT=4
 
 ;
 
@@ -38,7 +38,7 @@ AUTO_INCREMENT=3
 -- Records of administradores
 -- ----------------------------
 BEGIN;
-INSERT INTO `administradores` VALUES ('1', 'Julio', 'sarmiento', '123123', 'calle2', '123123'), ('2', 'ruber', 'regino', '12435623', 'calle41', '21341245');
+INSERT INTO `administradores` VALUES ('1', 'Julio', 'sarmiento', '123123', 'calle2', '123123'), ('3', 'admin', 'super', '1046274165', 'Cuc', '3144110213');
 COMMIT;
 
 -- ----------------------------
@@ -96,7 +96,7 @@ AUTO_INCREMENT=7
 -- Records of libros
 -- ----------------------------
 BEGIN;
-INSERT INTO `libros` VALUES ('1', 'Juego de tronos', 'HarperCollins', 'Fantasia ', 'George R. R. Martin', 'Seccion Ficcion', 'Prestado', '1996'), ('2', 'Choque de reyes ', 'HarperCollins', 'Fantasía', 'George R. R. Martin', 'Seccion Ficcion ', 'Disponible', '1998 '), ('4', 'Tormenta de espadas', 'HarperCollins', 'Fantasia', 'George R. R. Martin', 'Seccion Ficcion ', 'Disponible', '2000'), ('5', 'Festín de cuervos', 'HarperCollins', 'Fantasia', 'George R. R. Martin', 'Seccion Ficcion ', 'Disponible', '2005'), ('6', 'Danza de dragones', 'HarperCollins', 'Fantasia', 'George R. R. Martin', 'Seccion Ficcion ', 'Disponible', '2011');
+INSERT INTO `libros` VALUES ('1', 'Juego de tronos', 'HarperCollins', 'Fantasia ', 'George R. R. Martin', 'Seccion Ficcion', 'Prestado', '1996'), ('2', 'Choque de reyes ', 'HarperCollins', 'Fantasía', 'George R. R. Martin', 'Seccion Ficcion ', 'Disponible', '1998 '), ('4', 'Tormenta de espadas', 'HarperCollins', 'Fantasia', 'George R. R. Martin', 'Seccion Ficcion ', 'Prestado', '2000'), ('5', 'Festín de cuervos', 'HarperCollins', 'Fantasia', 'George R. R. Martin', 'Seccion Ficcion ', 'Disponible', '2005'), ('6', 'Danza de dragones', 'HarperCollins', 'Fantasia', 'George R. R. Martin', 'Seccion Ficcion ', 'Disponible', '2011');
 COMMIT;
 
 -- ----------------------------
@@ -165,13 +165,13 @@ DEFAULT CHARACTER SET=latin1 COLLATE=latin1_swedish_ci
 -- Records of usuarios
 -- ----------------------------
 BEGIN;
-INSERT INTO `usuarios` VALUES ('0001', 'otherside', '1', '123'), ('0004', 'tocayo', '2', '1234'), ('001', 'admin', '1', '1'), ('002', 'carlos', '2', '2'), ('003', '2', '1', '123'), ('1407', 'rubertel', '1', '2017');
+INSERT INTO `usuarios` VALUES ('0001', 'otherside', '1', '123'), ('0004', 'tocayo', '2', '1234'), ('001', 'otherside', '1', '123'), ('002', 'carlos', '2', '2'), ('003', '2', '1', '123'), ('005', 'admin', '1', '1'), ('1407', 'rubertel', '1', '2017');
 COMMIT;
 
 -- ----------------------------
 -- Auto increment value for administradores
 -- ----------------------------
-ALTER TABLE `administradores` AUTO_INCREMENT=3;
+ALTER TABLE `administradores` AUTO_INCREMENT=4;
 
 -- ----------------------------
 -- Auto increment value for libros
