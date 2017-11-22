@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-11-20 23:24:25
+Date: 2017-11-21 15:20:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -165,7 +165,7 @@ DEFAULT CHARACTER SET=latin1 COLLATE=latin1_swedish_ci
 -- Records of usuarios
 -- ----------------------------
 BEGIN;
-INSERT INTO `usuarios` VALUES ('0001', 'otherside', '1', '123'), ('0004', 'tocayo12', '2', '1234'), ('001', 'admin', '1', '1'), ('002', 'carlos', '2', '2'), ('003', '2', '1', '123'), ('1407', 'rubertel', '1', '2017');
+INSERT INTO `usuarios` VALUES ('0001', 'otherside', '1', '123'), ('0004', 'tocayo', '2', '1234'), ('001', 'admin', '1', '1'), ('002', 'carlos', '2', '2'), ('003', '2', '1', '123'), ('1407', 'rubertel', '1', '2017');
 COMMIT;
 
 -- ----------------------------
