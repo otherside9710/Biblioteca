@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportPrestados" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1a689368-280e-4fd0-9fd7-3ab8f1255761">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     libros.`li_codigo` AS libros_li_codigo,
+     libros.`li_nombre` AS libros_li_nombre,
+     libros.`li_editorial` AS libros_li_editorial,
+     libros.`li_genero` AS libros_li_genero,
+     libros.`li_autor` AS libros_li_autor,
+     libros.`li_ubicacion` AS libros_li_ubicacion,
+     libros.`li_estado` AS libros_li_estado,
+     libros.`li_añoEdicion` AS libros_li_añoEdicion
+FROM
+     `libros` libros
+WHERE
+     li_estado = 'Prestado']]>
+	</queryString>
+	<field name="libros_li_codigo" class="java.lang.Integer"/>
+	<field name="libros_li_nombre" class="java.lang.String"/>
+	<field name="libros_li_editorial" class="java.lang.String"/>
+	<field name="libros_li_genero" class="java.lang.String"/>
+	<field name="libros_li_autor" class="java.lang.String"/>
+	<field name="libros_li_ubicacion" class="java.lang.String"/>
+	<field name="libros_li_estado" class="java.lang.String"/>
+	<field name="libros_li_añoEdicion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="-14" width="197" height="136" uuid="5935579e-2859-4a4f-8b2c-74e2e90855e0"/>
+				<imageExpression><![CDATA["C:\\Users\\dell\\Documents\\NetBeansProjects\\Biblioteca\\src\\reportes\\logo_cut.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="SubTitle" x="339" y="72" width="196" height="22" uuid="540add09-617d-413c-a3b3-7be19a9f8657"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITARIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="94" width="383" height="42" uuid="4e322eb1-c71d-40cc-bcb8-9c1b6c19598a"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Adquirir el hábito de la lectura es construirse un refugio contra casi todas las miserias de la vida.]]></text>
+			</staticText>
+			<image>
+				<reportElement x="668" y="-14" width="132" height="136" uuid="45fc7f06-85ea-404d-a181-6c15cb197bd4"/>
+				<imageExpression><![CDATA["C:\\Users\\dell\\Documents\\NetBeansProjects\\Biblioteca\\src\\reportes\\logo_cut.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="248" y="10" width="335" height="62" uuid="80b51a6d-dffc-4192-bb70-863178911400"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[BIBLIOTECA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="b82fcf07-a298-4a53-89bd-f8a87a838dce"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="100" height="15" forecolor="#736343" uuid="6f872883-add7-4b1a-b0d7-c609409cff68"/>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="100" y="0" width="100" height="15" forecolor="#736343" uuid="69ef86d2-0c69-4307-a7ad-ed486c607e36"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="200" y="0" width="100" height="15" forecolor="#736343" uuid="1c657b9e-fd44-4630-8fd3-3a52833accf9"/>
+				<text><![CDATA[Ediotrial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="300" y="0" width="100" height="15" forecolor="#736343" uuid="f3fa2538-aafd-484b-ba20-467bd90cfdcd"/>
+				<text><![CDATA[Genero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="400" y="0" width="100" height="15" forecolor="#736343" uuid="1362b870-ad6d-4eaf-8c2a-1219fef1c62c"/>
+				<text><![CDATA[Autor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="500" y="0" width="100" height="15" forecolor="#736343" uuid="f2ddd928-783e-4466-bf8c-85fb5ab6a3d9"/>
+				<text><![CDATA[Ubicacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="600" y="0" width="100" height="15" forecolor="#736343" uuid="b564818e-0ff1-4d8b-9d62-1fa825c83e46"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="700" y="0" width="100" height="15" forecolor="#736343" uuid="8d9b2bb1-4710-4594-81e0-3560f3ff5a67"/>
+				<text><![CDATA[Año Edicion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="2e6c4aa5-8b6b-4d0c-a7af-b883c81d68e3"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="100" height="15" uuid="b2e0c7de-dfd8-4404-9e62-d2f654afc201"/>
+					<textFieldExpression><![CDATA[$F{libros_li_codigo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="100" y="0" width="100" height="15" uuid="836e9766-fb60-434c-bc6a-ae2b840a4b48"/>
+					<textFieldExpression><![CDATA[$F{libros_li_nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="200" y="0" width="100" height="15" uuid="185a293c-c76c-4271-bae0-d9732d378c47"/>
+					<textFieldExpression><![CDATA[$F{libros_li_editorial}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="300" y="0" width="100" height="15" uuid="481b5042-b82d-4621-8583-a99902899344"/>
+					<textFieldExpression><![CDATA[$F{libros_li_genero}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="400" y="0" width="100" height="15" uuid="17a368b8-593c-4476-aa51-796146e06d7d"/>
+					<textFieldExpression><![CDATA[$F{libros_li_autor}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="500" y="0" width="100" height="15" uuid="1f922e3f-35c3-48d0-ba5c-fd67e9a74e4a"/>
+					<textFieldExpression><![CDATA[$F{libros_li_ubicacion}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="600" y="0" width="100" height="15" uuid="4a17710b-5687-40d1-821c-7a3cc074a34f"/>
+					<textFieldExpression><![CDATA[$F{libros_li_estado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="700" y="0" width="100" height="15" uuid="fe3fc591-51f3-496b-a9e5-fef5ae31df0c"/>
+					<textFieldExpression><![CDATA[$F{libros_li_añoEdicion}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="6ad44e76-9877-47ed-b834-6a6199ade208"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="e01db892-3e7b-46da-bdbb-39aa6b4990b5"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="bd9c549f-8d42-4f51-a572-209de05919e8"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="e4c69e83-a8a3-41c2-b6a5-be5717c0a2a8"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="03c5d2e5-d46a-4b4f-b892-96e2d83c9bcc"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="348" y="4" width="161" height="20" uuid="3c168ac8-c341-4c1a-a753-e74e532bc3f3"/>
+					<text><![CDATA[REPORTE LIBROS PRESTADOS]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
