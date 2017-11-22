@@ -1,6 +1,7 @@
 package views.administradores.admis;
 
 import com.mysql.jdbc.Connection;
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,6 +11,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import models.Conexion;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import views.admin.libros.IngresarLibro;
 import views.admin.estudiantes.IngresarEstudiante;
 import views.*;
@@ -21,12 +28,13 @@ import views.admin.libros.EditarLibro;
 import static views.admin.libros.EditarLibro.tabla_buscar;
 import views.admin.libros.EliminarLibro;
 import static views.administradores.admis.EditarAdministrador.tabla_buscar;
+import reportes.ReportePrestados;
 
 /**
  *
  * @author otherside
  */
-public class MenuAdmin extends javax.swing.JFrame {
+public class MenuAdmin extends javax.swing.JFrame implements Serializable{
 Connection cn;
 private int id;
     /**
@@ -56,6 +64,7 @@ private int id;
         jLabel12 = new javax.swing.JLabel();
         btn_salir = new javax.swing.JButton();
         btn_cs = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
         Panel_usuarios = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -64,14 +73,17 @@ private int id;
         tbn_buscarAdmin = new javax.swing.JButton();
         btn_editarAdmin = new javax.swing.JButton();
         btn_eliminarAdmin = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
         Panel_Estudiantes = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btn_ingresarEst = new javax.swing.JButton();
         btn_buscarEstudiante = new javax.swing.JButton();
         btn_editarEstudiante = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
         btn_salir2 = new javax.swing.JButton();
         btn_cs1 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
         Panel_login = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -89,13 +101,16 @@ private int id;
         btn_atras = new javax.swing.JButton();
         txt_usuario_codigo = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         Panel_reportes = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        libros_prestado_reportes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
+
+        panel_libros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_Menu_IngresarLibro.setText("INGRESAR LIBRO");
         btn_Menu_IngresarLibro.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +118,7 @@ private int id;
                 btn_Menu_IngresarLibroActionPerformed(evt);
             }
         });
+        panel_libros.add(btn_Menu_IngresarLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 254, -1));
 
         btn_buscarLibro.setText("BUSCAR LIBRO");
         btn_buscarLibro.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +126,7 @@ private int id;
                 btn_buscarLibroActionPerformed(evt);
             }
         });
+        panel_libros.add(btn_buscarLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 254, -1));
 
         btn_editarLibro.setText("EDITAR LIBRO");
         btn_editarLibro.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +134,7 @@ private int id;
                 btn_editarLibroActionPerformed(evt);
             }
         });
+        panel_libros.add(btn_editarLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 254, -1));
 
         btn_eliminarLibro.setText("ELIMINAR LIBRO");
         btn_eliminarLibro.addActionListener(new java.awt.event.ActionListener() {
@@ -124,9 +142,11 @@ private int id;
                 btn_eliminarLibroActionPerformed(evt);
             }
         });
+        panel_libros.add(btn_eliminarLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 254, -1));
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel12.setText("PANEL DE ADMINISTRACION");
+        panel_libros.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         btn_salir.setText("SALIR");
         btn_salir.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +154,7 @@ private int id;
                 btn_salirActionPerformed(evt);
             }
         });
+        panel_libros.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 408, 125, -1));
 
         btn_cs.setText("CERRAR SESION");
         btn_cs.addActionListener(new java.awt.event.ActionListener() {
@@ -141,69 +162,38 @@ private int id;
                 btn_csActionPerformed(evt);
             }
         });
+        panel_libros.add(btn_cs, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 408, 145, -1));
 
-        javax.swing.GroupLayout panel_librosLayout = new javax.swing.GroupLayout(panel_libros);
-        panel_libros.setLayout(panel_librosLayout);
-        panel_librosLayout.setHorizontalGroup(
-            panel_librosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_librosLayout.createSequentialGroup()
-                .addGroup(panel_librosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_librosLayout.createSequentialGroup()
-                        .addGap(290, 290, 290)
-                        .addGroup(panel_librosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_buscarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_Menu_IngresarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel_librosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btn_eliminarLibro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panel_librosLayout.createSequentialGroup()
-                                    .addComponent(jLabel12)
-                                    .addGap(0, 0, Short.MAX_VALUE)))
-                            .addComponent(btn_editarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(259, 259, 259))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_librosLayout.createSequentialGroup()
-                        .addGap(274, 274, 274)
-                        .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_cs, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(282, 282, 282)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panel_librosLayout.setVerticalGroup(
-            panel_librosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_librosLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jLabel12)
-                .addGap(63, 63, 63)
-                .addComponent(btn_Menu_IngresarLibro)
-                .addGap(18, 18, 18)
-                .addComponent(btn_buscarLibro)
-                .addGap(18, 18, 18)
-                .addComponent(btn_editarLibro)
-                .addGap(18, 18, 18)
-                .addComponent(btn_eliminarLibro)
-                .addGap(66, 66, 66)
-                .addGroup(panel_librosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_salir)
-                    .addComponent(btn_cs))
-                .addContainerGap())
-        );
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/menuUser.jpg"))); // NOI18N
+        panel_libros.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
 
         jTabbedPane1.addTab("Libros", panel_libros);
 
+        Panel_usuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("PANEL DE ADMINISTRACION");
+        Panel_usuarios.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 37, -1, 27));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel3.setToolTipText("");
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ADMINISTRADOR");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
 
+        btn_sing_Admin.setBackground(new java.awt.Color(0, 0, 0));
+        btn_sing_Admin.setForeground(new java.awt.Color(255, 255, 255));
         btn_sing_Admin.setText("INGRESAR ADMINISTRADOR");
         btn_sing_Admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sing_AdminActionPerformed(evt);
             }
         });
+        jPanel3.add(btn_sing_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         tbn_buscarAdmin.setText("BUSCAR ADMINISTRADOR");
         tbn_buscarAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -211,6 +201,7 @@ private int id;
                 tbn_buscarAdminActionPerformed(evt);
             }
         });
+        jPanel3.add(tbn_buscarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 187, -1));
 
         btn_editarAdmin.setText("EDITAR ADMINISTRADOR");
         btn_editarAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -218,50 +209,39 @@ private int id;
                 btn_editarAdminActionPerformed(evt);
             }
         });
+        jPanel3.add(btn_editarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 187, -1));
 
         btn_eliminarAdmin.setText("ELIMINAR ADMINISTRADOR");
+        btn_eliminarAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarAdminActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn_eliminarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 187, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_sing_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2)
-                    .addComponent(btn_editarAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tbn_buscarAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_eliminarAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(159, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(btn_sing_Admin)
-                .addGap(18, 18, 18)
-                .addComponent(tbn_buscarAdmin)
-                .addGap(18, 18, 18)
-                .addComponent(btn_editarAdmin)
-                .addGap(18, 18, 18)
-                .addComponent(btn_eliminarAdmin)
-                .addContainerGap(68, Short.MAX_VALUE))
-        );
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/galaxy.jpg"))); // NOI18N
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 310));
+
+        Panel_usuarios.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 300, 310));
 
         Panel_Estudiantes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         Panel_Estudiantes.setToolTipText("");
+        Panel_Estudiantes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ESTUDIANTES");
+        Panel_Estudiantes.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
+        btn_ingresarEst.setBackground(new java.awt.Color(0, 0, 0));
+        btn_ingresarEst.setForeground(new java.awt.Color(255, 255, 255));
         btn_ingresarEst.setText("INGRESAR ESTUDIANTE");
         btn_ingresarEst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ingresarEstActionPerformed(evt);
             }
         });
+        Panel_Estudiantes.add(btn_ingresarEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
         btn_buscarEstudiante.setText("BUSCAR ESTUDIANTE");
         btn_buscarEstudiante.addActionListener(new java.awt.event.ActionListener() {
@@ -269,6 +249,7 @@ private int id;
                 btn_buscarEstudianteActionPerformed(evt);
             }
         });
+        Panel_Estudiantes.add(btn_buscarEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 162, -1));
 
         btn_editarEstudiante.setText("EDITAR ESTUDIANTE");
         btn_editarEstudiante.addActionListener(new java.awt.event.ActionListener() {
@@ -276,6 +257,7 @@ private int id;
                 btn_editarEstudianteActionPerformed(evt);
             }
         });
+        Panel_Estudiantes.add(btn_editarEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 162, -1));
 
         jButton13.setText("ELIMINAR  ESTUDIANTE");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -283,36 +265,12 @@ private int id;
                 jButton13ActionPerformed(evt);
             }
         });
+        Panel_Estudiantes.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 162, -1));
 
-        javax.swing.GroupLayout Panel_EstudiantesLayout = new javax.swing.GroupLayout(Panel_Estudiantes);
-        Panel_Estudiantes.setLayout(Panel_EstudiantesLayout);
-        Panel_EstudiantesLayout.setHorizontalGroup(
-            Panel_EstudiantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_EstudiantesLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(Panel_EstudiantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_ingresarEst, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3)
-                    .addComponent(btn_buscarEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_editarEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(159, Short.MAX_VALUE))
-        );
-        Panel_EstudiantesLayout.setVerticalGroup(
-            Panel_EstudiantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_EstudiantesLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(btn_ingresarEst)
-                .addGap(18, 18, 18)
-                .addComponent(btn_buscarEstudiante)
-                .addGap(18, 18, 18)
-                .addComponent(btn_editarEstudiante)
-                .addGap(18, 18, 18)
-                .addComponent(jButton13)
-                .addContainerGap(68, Short.MAX_VALUE))
-        );
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/galaxy.jpg"))); // NOI18N
+        Panel_Estudiantes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 310));
+
+        Panel_usuarios.add(Panel_Estudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 126, -1, 310));
 
         btn_salir2.setText("SALIR");
         btn_salir2.addActionListener(new java.awt.event.ActionListener() {
@@ -320,6 +278,7 @@ private int id;
                 btn_salir2ActionPerformed(evt);
             }
         });
+        Panel_usuarios.add(btn_salir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 510, 131, -1));
 
         btn_cs1.setText("CERRAR SESION");
         btn_cs1.addActionListener(new java.awt.event.ActionListener() {
@@ -327,58 +286,31 @@ private int id;
                 btn_cs1ActionPerformed(evt);
             }
         });
+        Panel_usuarios.add(btn_cs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 510, 145, -1));
 
-        javax.swing.GroupLayout Panel_usuariosLayout = new javax.swing.GroupLayout(Panel_usuarios);
-        Panel_usuarios.setLayout(Panel_usuariosLayout);
-        Panel_usuariosLayout.setHorizontalGroup(
-            Panel_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_usuariosLayout.createSequentialGroup()
-                .addGroup(Panel_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Panel_usuariosLayout.createSequentialGroup()
-                        .addGap(286, 286, 286)
-                        .addComponent(jLabel1))
-                    .addGroup(Panel_usuariosLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(Panel_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_salir2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Panel_Estudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(Panel_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Panel_usuariosLayout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(Panel_usuariosLayout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(btn_cs1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
-        Panel_usuariosLayout.setVerticalGroup(
-            Panel_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_usuariosLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addGroup(Panel_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Panel_Estudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addGroup(Panel_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_salir2)
-                    .addComponent(btn_cs1))
-                .addGap(28, 28, 28))
-        );
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/books.jpg"))); // NOI18N
+        Panel_usuarios.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 570));
 
         jTabbedPane1.addTab("Usuario", Panel_usuarios);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("USUARIOS");
+        Panel_login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("USUARIOS");
+        Panel_login.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("INGRESE USUARIOS A BUSCAR");
+        Panel_login.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 88, -1, 20));
 
         txt_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_buscarKeyReleased(evt);
             }
         });
+        Panel_login.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 84, 319, 30));
 
         btn_reset.setText("RESET");
         btn_reset.addActionListener(new java.awt.event.ActionListener() {
@@ -386,6 +318,7 @@ private int id;
                 btn_resetActionPerformed(evt);
             }
         });
+        Panel_login.add(btn_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, 121, -1));
 
         tabla_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -394,17 +327,28 @@ private int id;
         });
         jScrollPane1.setViewportView(tabla_buscar);
 
+        Panel_login.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 225, 741, 280));
+
         txt_usuarios_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_usuarios_userActionPerformed(evt);
             }
         });
+        Panel_login.add(txt_usuarios_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 185, 160, 30));
+        Panel_login.add(txt_usuario_tipousuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 186, 136, 28));
+        Panel_login.add(txt_usuario_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(621, 186, 160, 28));
 
+        APELLIDO.setForeground(new java.awt.Color(255, 255, 255));
         APELLIDO.setText("PASSWORD");
+        Panel_login.add(APELLIDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 153, 80, -1));
 
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("TIPO USUARIO");
+        Panel_login.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, 27));
 
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("USUARIO");
+        Panel_login.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 80, 20));
 
         btn_modificar.setText("MODIFICAR");
         btn_modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -412,6 +356,7 @@ private int id;
                 btn_modificarActionPerformed(evt);
             }
         });
+        Panel_login.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 523, 136, -1));
 
         btn_atras.setText("ATRAS");
         btn_atras.addActionListener(new java.awt.event.ActionListener() {
@@ -419,138 +364,61 @@ private int id;
                 btn_atrasActionPerformed(evt);
             }
         });
+        Panel_login.add(btn_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 523, 136, -1));
 
+        txt_usuario_codigo.setEditable(false);
+        txt_usuario_codigo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_usuario_codigoMouseClicked(evt);
+            }
+        });
         txt_usuario_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_usuario_codigoActionPerformed(evt);
             }
         });
+        Panel_login.add(txt_usuario_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 185, 160, 30));
 
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("CODIGO");
+        Panel_login.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 153, -1, -1));
 
-        javax.swing.GroupLayout Panel_loginLayout = new javax.swing.GroupLayout(Panel_login);
-        Panel_login.setLayout(Panel_loginLayout);
-        Panel_loginLayout.setHorizontalGroup(
-            Panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_loginLayout.createSequentialGroup()
-                .addGroup(Panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(Panel_loginLayout.createSequentialGroup()
-                        .addGap(354, 354, 354)
-                        .addComponent(jLabel8))
-                    .addGroup(Panel_loginLayout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addComponent(btn_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(btn_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Panel_loginLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(Panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(Panel_loginLayout.createSequentialGroup()
-                                .addComponent(txt_usuario_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txt_usuarios_user, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(52, 52, 52)
-                                .addComponent(txt_usuario_tipousuario, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addComponent(txt_usuario_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(Panel_loginLayout.createSequentialGroup()
-                        .addGroup(Panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Panel_loginLayout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(jLabel9))
-                            .addGroup(Panel_loginLayout.createSequentialGroup()
-                                .addGap(96, 96, 96)
-                                .addComponent(jLabel11)))
-                        .addGap(18, 18, 18)
-                        .addGroup(Panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Panel_loginLayout.createSequentialGroup()
-                                .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(Panel_loginLayout.createSequentialGroup()
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(113, 113, 113)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(APELLIDO, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)))))
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        Panel_loginLayout.setVerticalGroup(
-            Panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_loginLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel8)
-                .addGap(29, 29, 29)
-                .addGroup(Panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Panel_loginLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Panel_loginLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_reset))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(Panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(APELLIDO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel11))
-                .addGap(10, 10, 10)
-                .addGroup(Panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_usuarios_user, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_usuario_tipousuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_usuario_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_usuario_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(Panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_modificar)
-                    .addComponent(btn_atras))
-                .addContainerGap())
-        );
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/books.jpg"))); // NOI18N
+        Panel_login.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 570));
 
         jTabbedPane1.addTab("Login Setup", Panel_login);
 
-        jLabel4.setText("Libros Prestados");
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setText("REPORTES");
 
-        jLabel5.setText("Libros Disponibles");
-
-        jLabel6.setText("Prestar Libro");
-
-        jLabel7.setText("Agregar:");
+        libros_prestado_reportes.setText("REPORTE LIBROS PRESTADOS");
+        libros_prestado_reportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                libros_prestado_reportesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Panel_reportesLayout = new javax.swing.GroupLayout(Panel_reportes);
         Panel_reportes.setLayout(Panel_reportesLayout);
         Panel_reportesLayout.setHorizontalGroup(
             Panel_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_reportesLayout.createSequentialGroup()
+                .addContainerGap(247, Short.MAX_VALUE)
+                .addComponent(libros_prestado_reportes, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(231, 231, 231))
             .addGroup(Panel_reportesLayout.createSequentialGroup()
-                .addGroup(Panel_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Panel_reportesLayout.createSequentialGroup()
-                        .addGap(313, 313, 313)
-                        .addComponent(jLabel7))
-                    .addGroup(Panel_reportesLayout.createSequentialGroup()
-                        .addGap(281, 281, 281)
-                        .addGroup(Panel_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6))))
-                .addContainerGap(446, Short.MAX_VALUE))
+                .addGap(393, 393, 393)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Panel_reportesLayout.setVerticalGroup(
             Panel_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_reportesLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jLabel7)
-                .addGap(40, 40, 40)
+                .addGap(53, 53, 53)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addGap(87, 87, 87)
+                .addComponent(libros_prestado_reportes, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(352, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reportes", Panel_reportes);
@@ -776,13 +644,13 @@ private int id;
             String tipo = txt_usuario_tipousuario.getText();
             String pass = txt_usuario_pass.getText();
             try {
-                if (user =="" && tipo == "" && pass =="" && codigo =="") {
+                if (tipo == "" && pass =="" && codigo =="") {
                     JOptionPane.showMessageDialog(this, "Por Favor Complete Los Campos");
                 }else{
                 if (JOptionPane.showConfirmDialog(rootPane, "Editar Registro!, ¿desea continuar?",
                     "Editar Registro", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
                     Statement smt = cn.createStatement();
-                    smt.execute("UPDATE usuarios set codigo='"+codigo+"', usuario='"+user+"', tipouser='"+tipo+"', password='"+pass+"' WHERE codigo ="+id);
+                    smt.execute("UPDATE usuarios set usuario='"+user+"', tipouser='"+tipo+"', password='"+pass+"' WHERE codigo ="+id);
                     JOptionPane.showMessageDialog(this, "Datos Actualizados Correctamente!");
                     smt.close();
                     cargarTabla("");
@@ -830,6 +698,47 @@ private int id;
             Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_tbn_buscarAdminActionPerformed
+
+    private void txt_usuario_codigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_usuario_codigoMouseClicked
+        JOptionPane.showMessageDialog(rootPane, "No Editable");
+    }//GEN-LAST:event_txt_usuario_codigoMouseClicked
+
+    private void btn_eliminarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarAdminActionPerformed
+        try {
+            EliminarAdmin ea;
+            ea = new EliminarAdmin();
+            ea.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_eliminarAdminActionPerformed
+
+    private void libros_prestado_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libros_prestado_reportesActionPerformed
+       Conexion cn = new  Conexion();
+        try {
+            cn.conectar();
+            String Path = "C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/reportes/Biblioteca-Report.jasper";
+            JasperReport jr = null;
+            try {
+                jr = (JasperReport) JRLoader.loadObjectFromFile(Path);
+                JasperPrint jp = JasperFillManager.fillReport(jr,null,cn.conectar());
+                JasperViewer jv = new JasperViewer(jp);
+                jv.setVisible(true);
+                jv.setTitle(Path);
+                cn.conectar().close();
+            } catch (JRException ex) {
+                Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }//GEN-LAST:event_libros_prestado_reportesActionPerformed
     
     public void limpiarcajas(){
         txt_usuario_codigo.setText("");
@@ -907,17 +816,20 @@ private int id;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton libros_prestado_reportes;
     private javax.swing.JPanel panel_libros;
     public static javax.swing.JTable tabla_buscar;
     private javax.swing.JButton tbn_buscarAdmin;

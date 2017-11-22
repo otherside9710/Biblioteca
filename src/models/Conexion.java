@@ -13,10 +13,15 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
     
-    //Java Conexion
-    public static final String URL = "jdbc:mysql://localhost/biblioteca"; 
-    public static final String USERNAME = "root";
-    public static final String PASSWORD = ""; 
+    //Java Conexion LocalHost
+    //public static final String URL = "jdbc:mysql://localhost/biblioteca"; 
+    //public static final String USERNAME = "root";
+    //public static final String PASSWORD = ""; 
+    
+    //Java Conexion Servidor                       
+    public static final String URL = "jdbc:mysql://186.87.135.186:3306/biblioteca"; 
+    public static final String USERNAME = "SYSTEM";
+    public static final String PASSWORD = "MANAGER*"; 
     
     public PreparedStatement ps;
     public ResultSet rs;

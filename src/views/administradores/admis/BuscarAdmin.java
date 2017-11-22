@@ -54,7 +54,7 @@ Connection cn;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("BUSCAR ESTUDIASTES");
+        jLabel1.setText("BUSCAR ADMINISTRADORES");
 
         txt_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -62,7 +62,7 @@ Connection cn;
             }
         });
 
-        jLabel3.setText("INGRESE ESTUDIANTES A BUSCAR");
+        jLabel3.setText("INGRESE ADMIN A BUSCAR");
 
         btn_reset.setText("RESET");
         btn_reset.addActionListener(new java.awt.event.ActionListener() {

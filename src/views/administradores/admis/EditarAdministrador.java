@@ -60,6 +60,8 @@ private int id;
         jLabel12 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
         NOMBRE = new javax.swing.JLabel();
+        txt_codigo = new javax.swing.JTextField();
+        NOMBRE1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,6 +114,15 @@ private int id;
 
         NOMBRE.setText("NOMBRE");
 
+        txt_codigo.setEditable(false);
+        txt_codigo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_codigoMouseClicked(evt);
+            }
+        });
+
+        NOMBRE1.setText("CODIGO");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,91 +130,97 @@ private int id;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(380, 380, 380)
+                        .addGap(309, 309, 309)
                         .addComponent(btn_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
+                        .addGap(27, 27, 27)
                         .addComponent(btn_atras, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 871, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(205, 205, 205)
-                                .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(372, 372, 372)
+                        .addGap(369, 369, 369)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(77, 77, 77)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(NOMBRE1)
+                                .addGap(84, 84, 84)
                                 .addComponent(NOMBRE)
-                                .addGap(119, 119, 119)
+                                .addGap(98, 98, 98)
                                 .addComponent(APELLIDO)
-                                .addGap(138, 138, 138)
+                                .addGap(104, 104, 104)
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(112, 112, 112)
+                                .addGap(118, 118, 118)
                                 .addComponent(jLabel7)
-                                .addGap(61, 61, 61))
+                                .addGap(85, 85, 85)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(71, 71, 71)
                                 .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(11, 11, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(214, 214, 214)
+                        .addGap(321, 321, 321)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
                             .addComponent(APELLIDO)
                             .addComponent(NOMBRE)
-                            .addComponent(jLabel4))
+                            .addComponent(NOMBRE1)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_apellido)
-                                .addComponent(txt_cedula)
-                                .addComponent(txt_telefono, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                                .addComponent(txt_direccion))
-                            .addComponent(txt_nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_codigo)
+                            .addComponent(txt_nombre)
+                            .addComponent(txt_apellido)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txt_cedula))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_modificar)
-                    .addComponent(btn_atras)))
+                    .addComponent(btn_atras))
+                .addGap(17, 17, 17))
         );
 
         pack();
@@ -235,14 +252,14 @@ private int id;
         try {
              id  = Integer.parseInt((String) tabla_buscar.getValueAt(tabla_buscar.getSelectedRow(), 0));
              Statement smt = cn.createStatement();
-             ResultSet rs = smt.executeQuery("SELECT adm_nombre, adm_apellido, adm_cedula, adm_direccion ,adm_telefono FROM administradores WHERE adm_codigo ="+id);
+             ResultSet rs = smt.executeQuery("SELECT adm_codigo ,adm_nombre, adm_apellido, adm_cedula, adm_direccion ,adm_telefono FROM administradores WHERE adm_codigo ="+id);
              if (rs.next()) {
-                txt_nombre.setText(rs.getString(1));
-                txt_apellido.setText(rs.getString(2));
-                txt_cedula.setText(rs.getString(3));
-                txt_telefono.setText(rs.getString(4));
+                txt_codigo.setText(rs.getString(1));
+                txt_nombre.setText(rs.getString(2));
+                txt_apellido.setText(rs.getString(3));
+                txt_cedula.setText(rs.getString(4));
                 txt_direccion.setText(rs.getString(5));
-                
+                txt_telefono.setText(rs.getString(6));
             }
              rs.close();
              smt.close();
@@ -255,13 +272,13 @@ private int id;
         if (id!=0) {
             String nombre = txt_nombre.getText();
             String apellido = txt_apellido.getText();
-            String cedula = txt_cedula.getText();
-            String telefono = txt_telefono.getText();
+            String cedula = txt_cedula.getText();            
             String direccion = txt_direccion.getText();
+            String telefono = txt_telefono.getText();
             
             
             try {
-                if (nombre =="" && nombre == "" && apellido =="" && direccion =="" && telefono =="" && cedula =="") {
+                if (nombre == "" && apellido =="" && cedula =="" && direccion =="" && telefono =="" ) {
                     JOptionPane.showMessageDialog(this, "Por Favor Complete Los Campos");
                 }else{
                     if (JOptionPane.showConfirmDialog(rootPane, "Editar Registro!, ¿desea continuar?",
@@ -297,6 +314,10 @@ private int id;
        ma.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_btn_atrasActionPerformed
+
+    private void txt_codigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_codigoMouseClicked
+        JOptionPane.showMessageDialog(rootPane, "No Editable");
+    }//GEN-LAST:event_txt_codigoMouseClicked
     
     void cargarTabla(String cad) throws SQLException, ClassNotFoundException{
         CargarTabla(tabla_buscar, cad);
@@ -304,11 +325,11 @@ private int id;
     
     public void CargarTabla(JTable tabla, String cadena) throws SQLException, ClassNotFoundException{
         DefaultTableModel modelo;
-        String [] titulo = {"NOMBRE","APELLIDO","CEDULA","DIRECCION","TELEFONO"};
+        String [] titulo = {"CODIGO","NOMBRE","APELLIDO","CEDULA","DIRECCION","TELEFONO"};
         modelo = new DefaultTableModel(null,titulo);
         
-        String [] registros = new String[5];
-        String sql = "SELECT adm_nombre, adm_apellido, adm_cedula, adm_direccion ,adm_telefono FROM administradores WHERE CONCAT (adm_nombre, adm_apellido, adm_cedula, adm_direccion, adm_telefono) LIKE '%"+cadena+"%'";
+        String [] registros = new String[6];
+        String sql = "SELECT adm_codigo ,adm_nombre, adm_apellido, adm_cedula, adm_direccion ,adm_telefono FROM administradores WHERE CONCAT (adm_nombre, adm_apellido, adm_cedula, adm_direccion, adm_telefono) LIKE '%"+cadena+"%'";
         Conexion con = new Conexion();  
         cn = (Connection) con.conectar();
         
@@ -327,12 +348,12 @@ private int id;
     }
     
     public void limpiarcajas(){
-        txt_nombre.setText("");
+        txt_codigo.setText("");
         txt_nombre.setText("");
         txt_apellido.setText("");
         txt_cedula.setText("");
-        txt_telefono.setText("");
         txt_direccion.setText("");
+        txt_telefono.setText("");
         
     }
     
@@ -393,6 +414,7 @@ private int id;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel APELLIDO;
     private javax.swing.JLabel NOMBRE;
+    private javax.swing.JLabel NOMBRE1;
     private javax.swing.JButton btn_atras;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_reset;
@@ -408,6 +430,7 @@ private int id;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_codigo;
     private javax.swing.JTextField txt_direccion;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_telefono;

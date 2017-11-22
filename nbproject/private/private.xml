@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Otherside/Documents/GitHub/Biblioteca/src/views/administradores/admis/BuscarAdmin.java</file>
-            <file>file:/C:/Users/Otherside/Documents/GitHub/Biblioteca/src/views/user/Prestar_Libro.java</file>
-            <file>file:/C:/Users/Otherside/Documents/GitHub/Biblioteca/src/views/user/MenuUser.java</file>
-            <file>file:/C:/Users/Otherside/Documents/GitHub/Biblioteca/src/views/admin/libros/EditarLibro.java</file>
-            <file>file:/C:/Users/Otherside/Documents/GitHub/Biblioteca/src/views/user/Devolver_Libro.java</file>
-            <file>file:/C:/Users/Otherside/Documents/GitHub/Biblioteca/src/views/administradores/admis/MenuAdmin.java</file>
-            <file>file:/C:/Users/Otherside/Documents/GitHub/Biblioteca/src/views/administradores/admis/EditarAdministrador.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/controllers/IngresarController.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/admin/libros/EditarLibro.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/BuscarAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/models/Conexion.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/EliminarAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/EditarAdministrador.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/MenuAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/reportes/BibliotecaReportStatus.jrxml</file>
         </group>
     </open-files>
 </project-private>
