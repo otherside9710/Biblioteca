@@ -3,15 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/controllers/IngresarController.java</file>
-            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/admin/libros/EditarLibro.java</file>
-            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/BuscarAdmin.java</file>
-            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/models/Conexion.java</file>
-            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/EliminarAdmin.java</file>
-            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/reportes/Biblioteca-Report.jrxml</file>
-            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/EditarAdministrador.java</file>
-            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/reportes/ReportePrestados.java</file>
-            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/views/administradores/admis/MenuAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/EliminarAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/IngresarLibro.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/IngresarEstudiante.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/coneccion/Conexion.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/MenuAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/EditarAdministrador.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/Devolver_Libro.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/BuscarLibro.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/EditarEstudiante.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/Prestar_Libro.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/EditarLibro.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/MenuUser.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/BuscarEstudiante.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/Login.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/EliminarEstudiante.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/ValidarLogin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/BuscarAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/EliminarLibro.java</file>
         </group>
     </open-files>
 </project-private>
