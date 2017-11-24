@@ -58,7 +58,7 @@ public class Login extends javax.swing.JFrame {
                 btn_ingresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, -1, -1));
+        getContentPane().add(btn_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 480, 150, -1));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +66,7 @@ public class Login extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 480, 100, -1));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, 140, -1));
 
         txt_usuario.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 200, -1));

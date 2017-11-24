@@ -3,7 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/Prestar_Libro.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/IngresarEstudiante.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/MenuUser.java</file>
             <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/Login.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/IngresarAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/EliminarEstudiante.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/MenuAdmin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/ValidarLogin.java</file>
+            <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/Devolver_Libro.java</file>
             <file>file:/C:/Users/dell/Documents/NetBeansProjects/Biblioteca/src/interfaces/BuscarAdmin.java</file>
         </group>
     </open-files>

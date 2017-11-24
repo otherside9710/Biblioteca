@@ -27,7 +27,6 @@ private int id;
      */
     public MenuAdmin() throws SQLException, ClassNotFoundException {
         initComponents();
-        cargarTabla("");
         setLocationRelativeTo(null);//Centrar Ventana
     }
 
@@ -52,41 +51,24 @@ private int id;
         jLabel18 = new javax.swing.JLabel();
         Panel_usuarios = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        btn_sing_Admin = new javax.swing.JButton();
-        tbn_buscarAdmin = new javax.swing.JButton();
-        btn_editarAdmin = new javax.swing.JButton();
-        btn_eliminarAdmin = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
-        Panel_Estudiantes = new javax.swing.JPanel();
+        btn_salir2 = new javax.swing.JButton();
+        btn_cs1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btn_ingresarEst = new javax.swing.JButton();
         btn_buscarEstudiante = new javax.swing.JButton();
         btn_editarEstudiante = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
-        btn_salir2 = new javax.swing.JButton();
-        btn_cs1 = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
-        Panel_login = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        txt_buscar = new javax.swing.JTextField();
-        btn_reset = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabla_buscar = new javax.swing.JTable();
-        txt_usuarios_user = new javax.swing.JTextField();
-        txt_usuario_tipousuario = new javax.swing.JTextField();
-        txt_usuario_pass = new javax.swing.JTextField();
-        APELLIDO = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        btn_modificar = new javax.swing.JButton();
-        btn_atras = new javax.swing.JButton();
-        txt_usuario_codigo = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btn_sing_Admin = new javax.swing.JButton();
+        tbn_buscarAdmin = new javax.swing.JButton();
+        btn_editarAdmin = new javax.swing.JButton();
+        btn_eliminarAdmin = new javax.swing.JButton();
+        btn_salir3 = new javax.swing.JButton();
+        btn_cs2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,7 +128,7 @@ private int id;
         });
         panel_libros.add(btn_cs, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 408, 145, -1));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/menuUser.jpg"))); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/archivos/image3.jpg"))); // NOI18N
         panel_libros.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
 
         jTabbedPane1.addTab("Libros", panel_libros);
@@ -156,103 +138,7 @@ private int id;
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("PANEL DE ADMINISTRACION");
-        Panel_usuarios.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 37, -1, 27));
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel3.setToolTipText("");
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ADMINISTRADOR");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
-
-        btn_sing_Admin.setBackground(new java.awt.Color(0, 0, 0));
-        btn_sing_Admin.setForeground(new java.awt.Color(255, 255, 255));
-        btn_sing_Admin.setText("INGRESAR ADMINISTRADOR");
-        btn_sing_Admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_sing_AdminActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btn_sing_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
-
-        tbn_buscarAdmin.setText("BUSCAR ADMINISTRADOR");
-        tbn_buscarAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbn_buscarAdminActionPerformed(evt);
-            }
-        });
-        jPanel3.add(tbn_buscarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 187, -1));
-
-        btn_editarAdmin.setText("EDITAR ADMINISTRADOR");
-        btn_editarAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_editarAdminActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btn_editarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 187, -1));
-
-        btn_eliminarAdmin.setText("ELIMINAR ADMINISTRADOR");
-        btn_eliminarAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_eliminarAdminActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btn_eliminarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 187, -1));
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/galaxy.jpg"))); // NOI18N
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 310));
-
-        Panel_usuarios.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 300, 310));
-
-        Panel_Estudiantes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        Panel_Estudiantes.setToolTipText("");
-        Panel_Estudiantes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("ESTUDIANTES");
-        Panel_Estudiantes.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
-
-        btn_ingresarEst.setBackground(new java.awt.Color(0, 0, 0));
-        btn_ingresarEst.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ingresarEst.setText("INGRESAR ESTUDIANTE");
-        btn_ingresarEst.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ingresarEstActionPerformed(evt);
-            }
-        });
-        Panel_Estudiantes.add(btn_ingresarEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
-
-        btn_buscarEstudiante.setText("BUSCAR ESTUDIANTE");
-        btn_buscarEstudiante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_buscarEstudianteActionPerformed(evt);
-            }
-        });
-        Panel_Estudiantes.add(btn_buscarEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 162, -1));
-
-        btn_editarEstudiante.setText("EDITAR ESTUDIANTE");
-        btn_editarEstudiante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_editarEstudianteActionPerformed(evt);
-            }
-        });
-        Panel_Estudiantes.add(btn_editarEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 162, -1));
-
-        jButton13.setText("ELIMINAR  ESTUDIANTE");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-        Panel_Estudiantes.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 162, -1));
-
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/galaxy.jpg"))); // NOI18N
-        Panel_Estudiantes.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 310));
-
-        Panel_usuarios.add(Panel_Estudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 126, -1, 310));
+        Panel_usuarios.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, 27));
 
         btn_salir2.setText("SALIR");
         btn_salir2.addActionListener(new java.awt.event.ActionListener() {
@@ -270,105 +156,114 @@ private int id;
         });
         Panel_usuarios.add(btn_cs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 510, 145, -1));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/books.jpg"))); // NOI18N
-        Panel_usuarios.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 570));
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("AJUSTES ESTUDIANTES");
+        Panel_usuarios.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
-        jTabbedPane1.addTab("Usuario", Panel_usuarios);
-
-        Panel_login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("USUARIOS");
-        Panel_login.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("INGRESE USUARIOS A BUSCAR");
-        Panel_login.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 88, -1, 20));
-
-        txt_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_buscarKeyReleased(evt);
-            }
-        });
-        Panel_login.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 84, 319, 30));
-
-        btn_reset.setText("RESET");
-        btn_reset.addActionListener(new java.awt.event.ActionListener() {
+        btn_ingresarEst.setForeground(new java.awt.Color(0, 0, 0));
+        btn_ingresarEst.setText("INGRESAR ESTUDIANTE");
+        btn_ingresarEst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_resetActionPerformed(evt);
+                btn_ingresarEstActionPerformed(evt);
             }
         });
-        Panel_login.add(btn_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, 121, -1));
+        Panel_usuarios.add(btn_ingresarEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 230, -1));
 
-        tabla_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabla_buscarMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tabla_buscar);
-
-        Panel_login.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 225, 741, 280));
-
-        txt_usuarios_user.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscarEstudiante.setText("BUSCAR ESTUDIANTE");
+        btn_buscarEstudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_usuarios_userActionPerformed(evt);
+                btn_buscarEstudianteActionPerformed(evt);
             }
         });
-        Panel_login.add(txt_usuarios_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 185, 160, 30));
-        Panel_login.add(txt_usuario_tipousuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 186, 136, 28));
-        Panel_login.add(txt_usuario_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(621, 186, 160, 28));
+        Panel_usuarios.add(btn_buscarEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 230, -1));
 
-        APELLIDO.setForeground(new java.awt.Color(255, 255, 255));
-        APELLIDO.setText("PASSWORD");
-        Panel_login.add(APELLIDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 153, 80, -1));
-
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("TIPO USUARIO");
-        Panel_login.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, 27));
-
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("USUARIO");
-        Panel_login.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 80, 20));
-
-        btn_modificar.setText("MODIFICAR");
-        btn_modificar.addActionListener(new java.awt.event.ActionListener() {
+        btn_editarEstudiante.setText("EDITAR ESTUDIANTE");
+        btn_editarEstudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_modificarActionPerformed(evt);
+                btn_editarEstudianteActionPerformed(evt);
             }
         });
-        Panel_login.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 523, 136, -1));
+        Panel_usuarios.add(btn_editarEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 230, -1));
 
-        btn_atras.setText("ATRAS");
-        btn_atras.addActionListener(new java.awt.event.ActionListener() {
+        jButton13.setText("ELIMINAR  ESTUDIANTE");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_atrasActionPerformed(evt);
+                jButton13ActionPerformed(evt);
             }
         });
-        Panel_login.add(btn_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 523, 136, -1));
+        Panel_usuarios.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 230, -1));
 
-        txt_usuario_codigo.setEditable(false);
-        txt_usuario_codigo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txt_usuario_codigoMouseClicked(evt);
-            }
-        });
-        txt_usuario_codigo.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/archivos/image3.jpg"))); // NOI18N
+        Panel_usuarios.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
+
+        jTabbedPane1.addTab("Estudiantes", Panel_usuarios);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("PANEL DE ADMINISTRACION");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, 27));
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("AJUSTES ADMINISTRADOR");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+
+        btn_sing_Admin.setForeground(new java.awt.Color(0, 0, 0));
+        btn_sing_Admin.setText("INGRESAR ADMINISTRADOR");
+        btn_sing_Admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_usuario_codigoActionPerformed(evt);
+                btn_sing_AdminActionPerformed(evt);
             }
         });
-        Panel_login.add(txt_usuario_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 185, 160, 30));
+        jPanel1.add(btn_sing_Admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 230, -1));
 
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("CODIGO");
-        Panel_login.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 153, -1, -1));
+        tbn_buscarAdmin.setText("BUSCAR ADMINISTRADOR");
+        tbn_buscarAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbn_buscarAdminActionPerformed(evt);
+            }
+        });
+        jPanel1.add(tbn_buscarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 230, -1));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/books.jpg"))); // NOI18N
-        Panel_login.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 570));
+        btn_editarAdmin.setText("EDITAR ADMINISTRADOR");
+        btn_editarAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarAdminActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_editarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 230, -1));
 
-        jTabbedPane1.addTab("Login", Panel_login);
+        btn_eliminarAdmin.setText("ELIMINAR ADMINISTRADOR");
+        btn_eliminarAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarAdminActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_eliminarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 230, -1));
+
+        btn_salir3.setText("SALIR");
+        btn_salir3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salir3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_salir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 131, -1));
+
+        btn_cs2.setText("CERRAR SESION");
+        btn_cs2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cs2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_cs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, 145, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/archivos/image3.jpg"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
+
+        jTabbedPane1.addTab("Administradores", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -383,102 +278,6 @@ private int id;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txt_usuario_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuario_codigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_usuario_codigoActionPerformed
-
-    private void txt_usuario_codigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_usuario_codigoMouseClicked
-        JOptionPane.showMessageDialog(rootPane, "No Editable");
-    }//GEN-LAST:event_txt_usuario_codigoMouseClicked
-
-    private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
-        MenuAdmin ma = null;
-        try {
-            ma = new MenuAdmin();
-        } catch (SQLException ex) {
-            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ma.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btn_atrasActionPerformed
-
-    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
-        if (id!=0) {
-            String codigo = txt_usuario_codigo.getText();
-            String user = txt_usuarios_user.getText();
-            String tipo = txt_usuario_tipousuario.getText();
-            String pass = txt_usuario_pass.getText();
-            try {
-                if (tipo == "" && pass =="" && codigo =="") {
-                    JOptionPane.showMessageDialog(this, "Por Favor Complete Los Campos");
-                }else{
-                    if (JOptionPane.showConfirmDialog(rootPane, "Editar Registro!, ¿desea continuar?",
-                        "Editar Registro", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-                    Statement smt = cn.createStatement();
-                    smt.execute("UPDATE usuarios set usuario='"+user+"', tipouser='"+tipo+"', password='"+pass+"' WHERE codigo ="+id);
-                    JOptionPane.showMessageDialog(this, "Datos Actualizados Correctamente!");
-                    smt.close();
-                    cargarTabla("");
-                    limpiarcajas();
-                    id = 0;
-                }else{
-                    cargarTabla("");
-                    limpiarcajas();
-                }
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "No se pudo actualizar los datos " +e);
-        }
-        }
-    }//GEN-LAST:event_btn_modificarActionPerformed
-
-    private void txt_usuarios_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarios_userActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_usuarios_userActionPerformed
-
-    private void tabla_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_buscarMouseClicked
-        try {
-            id  = Integer.parseInt((String) tabla_buscar.getValueAt(tabla_buscar.getSelectedRow(), 0));
-            Statement smt = cn.createStatement();
-            ResultSet rs = smt.executeQuery("SELECT codigo, usuario, tipouser, password FROM usuarios WHERE codigo ="+id);
-            if (rs.next()) {
-                txt_usuario_codigo.setText(rs.getString(1));
-                txt_usuarios_user.setText(rs.getString(2));
-                txt_usuario_tipousuario.setText(rs.getString(3));
-                txt_usuario_pass.setText(rs.getString(4));
-            }
-            rs.close();
-            smt.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e);
-        }
-    }//GEN-LAST:event_tabla_buscarMouseClicked
-
-    private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
-        try {
-            cargarTabla("");
-            limpiarcajas();
-        } catch (SQLException ex) {
-            Logger.getLogger(BuscarAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(BuscarAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        txt_buscar.setText(null);
-    }//GEN-LAST:event_btn_resetActionPerformed
-
-    private void txt_buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarKeyReleased
-        try {
-            cargarTabla(txt_buscar.getText());
-        } catch (SQLException ex) {
-            Logger.getLogger(BuscarAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(BuscarAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_txt_buscarKeyReleased
 
     private void btn_cs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cs1ActionPerformed
         this.setVisible(false);
@@ -500,7 +299,6 @@ private int id;
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void btn_editarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarEstudianteActionPerformed
@@ -513,7 +311,6 @@ private int id;
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_btn_editarEstudianteActionPerformed
 
     private void btn_buscarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarEstudianteActionPerformed
@@ -526,7 +323,6 @@ private int id;
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_btn_buscarEstudianteActionPerformed
 
     private void btn_ingresarEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarEstActionPerformed
@@ -534,6 +330,60 @@ private int id;
         is.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_ingresarEstActionPerformed
+
+    private void btn_csActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_csActionPerformed
+        this.setVisible(false);
+        Login lo = new Login();
+        lo.setVisible(true);
+    }//GEN-LAST:event_btn_csActionPerformed
+
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void btn_eliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarLibroActionPerformed
+        try {
+            EliminarLibro el = new EliminarLibro();
+            el.setVisible(true);
+            this.setVisible(false);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_eliminarLibroActionPerformed
+
+    private void btn_editarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarLibroActionPerformed
+        EditarLibro el = null;
+        try {
+            el = new EditarLibro();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        el.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_editarLibroActionPerformed
+
+    private void btn_buscarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarLibroActionPerformed
+        BuscarLibro bl = null;
+        try {
+            bl = new BuscarLibro();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bl.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_buscarLibroActionPerformed
+
+    private void btn_Menu_IngresarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Menu_IngresarLibroActionPerformed
+        IngresarLibro il = new IngresarLibro();
+        il.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_Menu_IngresarLibroActionPerformed
 
     private void btn_eliminarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarAdminActionPerformed
         try {
@@ -580,65 +430,17 @@ private int id;
         this.setVisible(false);
     }//GEN-LAST:event_btn_sing_AdminActionPerformed
 
-    private void btn_csActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_csActionPerformed
-        this.setVisible(false);
+    private void btn_salir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salir3ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btn_salir3ActionPerformed
+
+    private void btn_cs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cs2ActionPerformed
+         this.setVisible(false);
         Login lo = new Login();
         lo.setVisible(true);
-    }//GEN-LAST:event_btn_csActionPerformed
-
-    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btn_salirActionPerformed
-
-    private void btn_eliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarLibroActionPerformed
-        try {
-            EliminarLibro el = new EliminarLibro();
-            el.setVisible(true);
-            this.setVisible(false);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_btn_eliminarLibroActionPerformed
-
-    private void btn_editarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarLibroActionPerformed
-        EditarLibro el = null;
-        try {
-            el = new EditarLibro();
-        } catch (SQLException ex) {
-            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        el.setVisible(true);
-        this.setVisible(false);
-
-    }//GEN-LAST:event_btn_editarLibroActionPerformed
-
-    private void btn_buscarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarLibroActionPerformed
-        BuscarLibro bl = null;
-        try {
-            bl = new BuscarLibro();
-        } catch (SQLException ex) {
-            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        bl.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btn_buscarLibroActionPerformed
-
-    private void btn_Menu_IngresarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Menu_IngresarLibroActionPerformed
-        IngresarLibro il = new IngresarLibro();
-        il.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btn_Menu_IngresarLibroActionPerformed
+    }//GEN-LAST:event_btn_cs2ActionPerformed
     
-    void cargarTabla(String cad) throws SQLException, ClassNotFoundException{
-        CargarTabla(tabla_buscar, cad);
-    }
+   
     
     public void CargarTabla(JTable tabla, String cadena) throws SQLException, ClassNotFoundException{
         DefaultTableModel modelo;
@@ -663,12 +465,7 @@ private int id;
         }
     }
         
-    public void limpiarcajas(){
-        txt_usuario_codigo.setText("");
-        txt_usuarios_user.setText("");
-        txt_usuario_tipousuario.setText("");
-        txt_usuario_pass.setText("");
-    }
+    
     /**
      * @param args the command line arguments
      */
@@ -711,52 +508,35 @@ private int id;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel APELLIDO;
-    private javax.swing.JPanel Panel_Estudiantes;
-    private javax.swing.JPanel Panel_login;
     private javax.swing.JPanel Panel_usuarios;
     private javax.swing.JButton btn_Menu_IngresarLibro;
-    private javax.swing.JButton btn_atras;
     private javax.swing.JButton btn_buscarEstudiante;
     private javax.swing.JButton btn_buscarLibro;
     private javax.swing.JButton btn_cs;
     private javax.swing.JButton btn_cs1;
+    private javax.swing.JButton btn_cs2;
     private javax.swing.JButton btn_editarAdmin;
     private javax.swing.JButton btn_editarEstudiante;
     private javax.swing.JButton btn_editarLibro;
     private javax.swing.JButton btn_eliminarAdmin;
     private javax.swing.JButton btn_eliminarLibro;
     private javax.swing.JButton btn_ingresarEst;
-    private javax.swing.JButton btn_modificar;
-    private javax.swing.JButton btn_reset;
     private javax.swing.JButton btn_salir;
     private javax.swing.JButton btn_salir2;
+    private javax.swing.JButton btn_salir3;
     private javax.swing.JButton btn_sing_Admin;
     private javax.swing.JButton jButton13;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel panel_libros;
-    private javax.swing.JTable tabla_buscar;
     private javax.swing.JButton tbn_buscarAdmin;
-    private javax.swing.JTextField txt_buscar;
-    private javax.swing.JTextField txt_usuario_codigo;
-    private javax.swing.JTextField txt_usuario_pass;
-    private javax.swing.JTextField txt_usuario_tipousuario;
-    private javax.swing.JTextField txt_usuarios_user;
     // End of variables declaration//GEN-END:variables
 }

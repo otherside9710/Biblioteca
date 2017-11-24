@@ -22,13 +22,11 @@ public class ValidarLogin {
             capturar = rs.getString("tipouser");            
         }
         
-        if (capturar.equals("1")) {
-            JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);
+        if (capturar.equals("1")) {            
             MenuAdmin ma = new MenuAdmin();
             ma.setVisible(true);
         }
         if (capturar.equals("2")) {
-            JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);  
             MenuUser mu = new MenuUser();
             mu.setVisible(true);
            

@@ -52,7 +52,7 @@ private int id;
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("DEVOLVER LIBROS");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, -1, -1));
 
         txt_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -100,7 +100,7 @@ private int id;
         });
         getContentPane().add(btn_devolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, 160, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Fondo1.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/archivos/longImage.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 640));
 
         pack();

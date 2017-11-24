@@ -63,7 +63,7 @@ private int id;
         });
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("INGRESE LIBRO A ELIMINAR");
+        jLabel3.setText("INGRESE ESTUDIANTE A ELIMINAR");
 
         btn_reset.setText("RESET");
         btn_reset.addActionListener(new java.awt.event.ActionListener() {

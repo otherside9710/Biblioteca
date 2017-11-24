@@ -100,7 +100,7 @@ private int id;
         });
         getContentPane().add(btn_prestar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, 160, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Fondo1.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/archivos/longImage.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 640));
 
         pack();
